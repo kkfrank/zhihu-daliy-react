@@ -1,8 +1,10 @@
 import React,{Component} from 'react'
 import ReactDOM from 'react-dom'
-
+//import App from './router/'
+import App from './containers/Root'
+import './global.css'
 ReactDOM.render(
-	<h1>hello world</h1>,
+	<App/>,
 	document.getElementById('app')
 
 )
