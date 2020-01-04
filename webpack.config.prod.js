@@ -5,7 +5,8 @@
 */
 const webpack = require('webpack');
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const pkg = require('./package.json');
@@ -33,7 +34,7 @@ module.exports = {
                 exclude: /node_modules/,
                 use: [
                     'babel-loader',
-                    'eslint-loader'
+                    // 'eslint-loader'
                 ]
             },
             {
@@ -83,13 +84,13 @@ module.exports = {
         // Scope hosting
         new webpack.optimize.ModuleConcatenationPlugin(),
         // 删除build文件夹
-        new CleanWebpackPlugin('./build'),
+        new CleanWebpackPlugin(),
         // 加署名
         new webpack.BannerPlugin("Copyright by frank"),
         // html 模板插件
         new HtmlWebpackPlugin({
             filename:'../index.html',
-            template: __dirname + '/src/index.html',
+            template: __dirname + '/src/index.template.html',
             minify: {
                 removeComments: true,
                 collapseWhitespace: false
