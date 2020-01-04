@@ -9,3 +9,9 @@ li{
 a{
 	text-decoration: none;
 }
+.fw100 { font-weight: 100; }
+.fw300, .nb { font-weight: 300; }
+.fw400 { font-weight: 400; }
+.fw500 { font-weight: 500; }
+.fw700, .b { font-weight: 700 !important; }
+.fw900 { font-weight: 900 }

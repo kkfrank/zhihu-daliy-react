@@ -1,18 +1,20 @@
 import React from 'react'
-import{BrowserRouter as Router,Link,Route} from 'react-router-dom'
+import{ BrowserRouter, HashRouter, Link, Route } from 'react-router-dom'
 
-import Home from '../views/Home'
-import Detail from '../views/Detail'
+// import Home from '../views/Home'
+import NewsDetail from '../pages/NewsDetail'
+import NewsList from '../pages/NewsList/index.jsx'
 
-export default()=>(
-	<Router>
+export default() => (
+	<HashRouter>
 		<div>
 			{/*<Link to='/'>Home</Link>
 			<Link to='/detail'>Detail</Link>*/}
-			<Route exact path='/' component={Home}/>
-			<Route path='/detail/:id' component={Detail}/>
+			{/*<Route exact path='/' component={Home}/>*/}
+            <Route exact path='/' component={ NewsList }/>
+			<Route path='/details/:id' component={ NewsDetail }/>
 		</div>
-	</Router>
+	</HashRouter>
 )
 
 /*import React from 'react'
