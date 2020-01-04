@@ -2,14 +2,12 @@ import fetch from 'isomorphic-fetch'
 
 const corsUrl = 'https://cors-anywhere.herokuapp.com/'
 //https://news-at.zhihu.com/api/4/news/latest
-let BaseUrl='http://127.0.0.1:9001/api/4'
-
-// if($NODE_ENV === 'production'){
-//     BaseUrl = corsUrl + BaseUrl
-// }
+let BaseUrl=''
 
 if(process.env.NODE_ENV === 'production'){
-    BaseUrl = corsUrl + BaseUrl
+    BaseUrl = corsUrl + 'https://news-at.zhihu.com/api/4'
+}else{
+    BaseUrl = 'http://127.0.0.1:9001/api/4'
 }
 
 export default {
