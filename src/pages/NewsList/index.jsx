@@ -20,7 +20,7 @@ import './index.scss'
     loadingError
 }), dispatch =>({
     getLatestNewsFunc(){
-        dispatch(getLatestNews())
+        return dispatch(getLatestNews())
     },
     getBeforeNewsFunc(){
         dispatch(getBeforeNews())
@@ -49,14 +49,15 @@ export default class NewsList extends Component{
 
     componentDidMount(){
         const { storyList, scrollTop } = this.props.newsList
-        console.log('list componentDidMount', storyList,  scrollTop)
+        console.log('list componentDidMount', storyList, scrollTop)
         this.addEvent()
 
         if(storyList.length > 0){
             document.documentElement.scrollTop = scrollTop
             return
         }
-        this.props.getLatestNewsFunc();
+        this.props.getLatestNewsFunc()
+            .then(()=>{ this.props.getBeforeNewsFunc()} );
     }
     addEvent(){
         listenScrollBottom(this.props.getBeforeNewsFunc)
@@ -83,6 +84,7 @@ export default class NewsList extends Component{
     render() {
         const { loading, errorMsg } = this.props.loadingError;
         const { topStoryList, storyList } = this.props.newsList
+
         return (
             <div className='news-list-container'>
                 {
@@ -96,12 +98,9 @@ export default class NewsList extends Component{
                         </Modal>
                     )
                 }
-                {
-
-                    loading && <Loading/>
-                }
+                { loading && <Loading/> }
                 <Header/>
-                <TopStories topStoryList={ topStoryList }/>
+                { topStoryList && topStoryList.length > 0 && <TopStories topStoryList={ topStoryList }/> }
                 <div className="news-list-box">
                     {
                         ( storyList || []).map((item, index, arr)=>(

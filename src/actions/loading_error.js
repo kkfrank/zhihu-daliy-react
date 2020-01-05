@@ -15,7 +15,7 @@ export function hideLoading(){
 export function setErrorMsg(message){
     return{
         type: SET_ERROR_MSG,
-        message
+        errorMsg: message
     }
 }
 

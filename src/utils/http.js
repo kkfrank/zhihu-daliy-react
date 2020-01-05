@@ -12,17 +12,21 @@ if(process.env.NODE_ENV === 'production'){
 
 export default {
     post(url, data, params){
-        return fetch(BaseUrl + url, { method: 'POST' })
-            .then(res => res.json())
-            .catch(err => {
-                console.log(err)
-            })
+        return new Promise((resolve, reject) => {
+             fetch(BaseUrl + url, { method: 'POST' })
+                .then(res => resolve(res.json()))
+                .catch(err => {
+                    reject({
+                        message: err
+                    })
+                })
+        })
     },
     get(url, params = {}){
-        return fetch(BaseUrl + url, { method: 'GET' })
-            .then(res => res.json())
-            .catch(err => {
-                console.log(err)
-            })
+        return new Promise((resolve, reject) => {
+            fetch(BaseUrl + url, { method: 'GET' })
+                .then(res => resolve(res.json()))
+                .catch(err => reject({ message: err }))
+        })
     }
 }

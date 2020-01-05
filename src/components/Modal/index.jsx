@@ -45,16 +45,17 @@ export default class Modal extends Component{
     render(){
         let { title, children } = this.props
         const { visible, confirmLoading } = this.props
+        console.log('hhhhhhh',title, children, typeof children)
         title = title || '提示'
         return(
             <div className={`modal-box ${visible? '' : 'hide'}`}>
                 <div className="modal-mask" ref={el=>this.maskRef = el} />
                 <div className="modal-content" ref={el=>this.modalContentRef = el} tabIndex='0' onKeyDown={this.handleKeyDown}>
                     <div className='modal-header'>
-                        {title}
+                        { title }
                         <i onClick={ this.onCancel } className='right'>x</i>
                     </div>
-                    <div className='modal-body'>{children}</div>
+                    <div className='modal-body'>{ children }</div>
                     <div className='modal-footer'>
                         <button onClick={ this.onCancel } className='btn default mr10'>取消</button>
                         <button onClick={ this.onOk } className={`btn ${ confirmLoading ? 'disabled' : '' }`}>确定</button>

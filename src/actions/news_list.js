@@ -7,16 +7,15 @@ export function getLatestNews(){
     return function(dispatch, getState){
         dispatch(showLoading())
 
-        http.get('/news/latest')
+        return http.get('/news/latest')
             .then(data=>{
                 dispatch({
                     type: GET_LATEST_NEWS,
                     data: data
                 })
                 dispatch(hideLoading())
-            })
-            .catch(err=>{
-                dispatch(setErrorMsg(err.message))
+            }).catch(err=>{
+                dispatch(setErrorMsg(err.message.toString()))
             })
     }
 }
@@ -39,7 +38,7 @@ export function getBeforeNews(){
                 })
                 dispatch(hideLoading())
             }).catch(err=>{
-                 dispatch(setErrorMsg(err.message))
+                 dispatch(setErrorMsg(err.message.toString()))
             })
     }
 }
