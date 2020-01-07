@@ -1,6 +1,6 @@
-//.detail-box{
-//  margin-top: 50px;
-//}
+.detail-box{
+  margin-top: 50px;
+}
 .detail-img-box{
   position: relative;
   height: 370px;
@@ -46,10 +46,9 @@
   }
 }
 
-
 .detail-content-box{
   background-color: #fff;
-  padding: 18px 18px 60px 18px;
+  padding: 18px 18px 30px 18px;
 }
 .detail-content-box .answer .meta{
   padding: 20px 0;
@@ -61,6 +60,8 @@
   vertical-align: -7px;
   height: 26px;
   margin-right: 6px;
+  border-radius: 50%;
+  display: inline-block;
 }
 .detail-content-box .content p,.detail-content-box .content hr,
 .detail-content-box .content blockquote{

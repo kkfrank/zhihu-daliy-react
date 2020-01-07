@@ -1,0 +1,51 @@
+.comment-box{
+  padding: 50px 10px 0 10px;
+  .comment-title{
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  .comment-item{
+    border-bottom: 1px solid #eee;
+    padding: 14px 0;
+  }
+  .avatar{
+    float: left;
+    width: 30px;
+    border-radius: 50%;
+  }
+  .comment-detail{
+    margin-left: 44px;
+    .comment-author{
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .comment-content{
+      font-size: 14px;
+      margin-bottom: 6px;
+      white-space: pre-line;
+    }
+    .comment-other{
+      color: #666;
+      font-size: 14px;
+    }
+    .comment-like{
+      cursor: pointer;
+      float: right;
+      margin-right: 30px;
+      span{
+        margin-right: 4px;
+        font-size: 12px;
+      }
+    }
+    .comment-judge{
+      cursor: pointer;
+      float: right;
+    }
+
+    .replay-to{
+      color: #666;
+      font-size: 12px;
+      margin-bottom: 16px;
+    }
+  }
+}

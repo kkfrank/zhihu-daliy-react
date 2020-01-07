@@ -29,7 +29,6 @@ export default class TopStories extends Component{
     addIntervalEvent(){
         const len = this.props.topStoryList.length
         this.state.timerId = setInterval(()=>{
-            console.log('linbbboooooooo')
             this.setState({
                 activeIndex: (this.state.activeIndex + 1) % len
             })

@@ -45,7 +45,6 @@ export default class Modal extends Component{
     render(){
         let { title, children } = this.props
         const { visible, confirmLoading } = this.props
-        console.log('hhhhhhh',title, children, typeof children)
         title = title || '提示'
         return(
             <div className={`modal-box ${visible? '' : 'hide'}`}>

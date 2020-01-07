@@ -4,6 +4,7 @@ import{ BrowserRouter, HashRouter, Link, Route } from 'react-router-dom'
 // import Home from '../views/Home'
 import NewsDetail from '../pages/NewsDetail'
 import NewsList from '../pages/NewsList/index.jsx'
+import CommentList from '../pages/CommentList/index.jsx'
 
 export default() => (
 	<HashRouter>
@@ -12,7 +13,8 @@ export default() => (
 			<Link to='/detail'>Detail</Link>*/}
 			{/*<Route exact path='/' component={Home}/>*/}
             <Route exact path='/' component={ NewsList }/>
-			<Route path='/details/:id' component={ NewsDetail }/>
+			<Route exact path='/details/:id' component={ NewsDetail }/>
+			<Route path='/details/:id/comments' component={ CommentList }/>
 		</div>
 	</HashRouter>
 )

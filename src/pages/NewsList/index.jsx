@@ -49,7 +49,7 @@ export default class NewsList extends Component{
 
     componentDidMount(){
         const { storyList, scrollTop } = this.props.newsList
-        console.log('list componentDidMount', storyList, scrollTop)
+        console.log('list componentDidMount', scrollTop)
         this.addEvent()
 
         if(storyList.length > 0){
@@ -76,7 +76,7 @@ export default class NewsList extends Component{
     }
 
     componentWillUnmount(){
-        console.log('list componentWillUnmount')
+        console.log('news list componentWillUnmount')
         removeListenScrollBottom();
         // this.props.clearCategoryFunc()
     }

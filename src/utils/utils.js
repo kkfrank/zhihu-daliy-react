@@ -11,6 +11,28 @@ export function formatDate(date){
     return year + month + day
 }
 
+export function formatDate2(date){
+    var year= date.getFullYear()
+    var month= date.getMonth()+1
+    var day = date.getDate()
+    var hour = date.getHours()
+    var minute = date.getMinutes()
+
+    if (month < 10 ){
+        month = '0' + month
+    }
+    if (day < 10 ){
+        day = '0' + day
+    }
+    if (hour < 10 ){
+        hour = '0' + hour
+    }
+    if (minute < 10 ){
+        minute = '0' + minute
+    }
+    return `${year}-${month}-${day} ${hour}:${minute}`
+}
+
 export function parseDate(str){
     if(!/^(\d){8}$/.test(str)) throw "invalid date"
     var y = str.substr(0,4),
