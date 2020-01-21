@@ -23,7 +23,7 @@ export default (state = DEFAULT_STATE, action) => {
                 ...state,
                 nowDate: action.data.date,
                 topStoryList: action.data.top_stories,
-                storyList: [...state.storyList, ...addDateToStory(action.data.stories, action.data.date)]
+                storyList: [...state.storyList, ...addDateToStory(action.data.stories, action.data.date)]//直接使用最新的数据替换?
                 // storyList: [...state.storyList, ...action.data],
             }
         case GET_BEFORE_NEWS:

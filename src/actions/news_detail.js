@@ -15,8 +15,8 @@ export function getNewsDetail(id){
                 })
                 dispatch(hideLoading())
             }).catch(err=>{
-            dispatch(setErrorMsg(err.message))
-        })
+                dispatch(setErrorMsg(err.message))
+            })
     }
 }
 
@@ -31,7 +31,7 @@ export function getNewsExtra(id){
                 })
                 dispatch(hideLoading())
             }).catch(err=>{
-            dispatch(setErrorMsg(err.message))
-        })
+                dispatch(setErrorMsg(err.message))
+            })
     }
 }

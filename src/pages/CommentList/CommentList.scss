@@ -1,6 +1,7 @@
 .comment-box{
-  padding: 50px 10px 0 10px;
+  padding: 50px 10px;
   .comment-title{
+    font-size: 14px;
     font-weight: 600;
     margin-top: 10px;
   }
@@ -21,12 +22,15 @@
     }
     .comment-content{
       font-size: 14px;
-      margin-bottom: 6px;
+      margin-bottom: 10px;
       white-space: pre-line;
     }
     .comment-other{
       color: #666;
       font-size: 14px;
+      .time{
+        font-size: 12px;
+      }
     }
     .comment-like{
       cursor: pointer;
@@ -41,7 +45,6 @@
       cursor: pointer;
       float: right;
     }
-
     .replay-to{
       color: #666;
       font-size: 12px;

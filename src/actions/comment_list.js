@@ -32,8 +32,8 @@ export function getLongCommentList(storyId){
                 })
                 dispatch(hideLoading())
             }).catch(err=>{
-            dispatch(setErrorMsg(err.message.toString()))
-        })
+                dispatch(setErrorMsg(err.message.toString()))
+            })
     }
 }
 
@@ -61,8 +61,8 @@ export function getShortCommentListBefore(storyId){
                 })
                 dispatch(hideLoading())
             }).catch(err=>{
-            dispatch(setErrorMsg(err.message.toString()))
-        })
+                dispatch(setErrorMsg(err.message.toString()))
+            })
     }
 }
 
@@ -90,7 +90,7 @@ export function getLongCommentListBefore(storyId){
                 })
                 dispatch(hideLoading())
             }).catch(err=>{
-            dispatch(setErrorMsg(err.message.toString()))
-        })
+                dispatch(setErrorMsg(err.message.toString()))
+            })
     }
 }

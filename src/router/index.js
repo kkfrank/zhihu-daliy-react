@@ -2,9 +2,9 @@ import React from 'react'
 import{ BrowserRouter, HashRouter, Link, Route } from 'react-router-dom'
 
 // import Home from '../views/Home'
-import NewsDetail from '../pages/NewsDetail'
-import NewsList from '../pages/NewsList/index.jsx'
-import CommentList from '../pages/CommentList/index.jsx'
+import NewsDetail from '../pages/NewsDetail/NewsDetail'
+import NewsList from '../pages/NewsList/NewsList'
+import CommentList from '../pages/CommentList/CommentList'
 
 export default() => (
 	<HashRouter>

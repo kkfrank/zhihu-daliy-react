@@ -11,9 +11,9 @@ import { getNewsExtra } from '../../actions/news_detail'
 import { clearErrorMsg } from '../../actions/loading_error'
 import { formatDate2 } from '../../utils/utils'
 import { listenScrollBottom, removeListenScrollBottom } from '../../utils/utils'
-import './index.scss'
+import './CommentList.scss'
 
-@connect(({commentList, newsDetail, loadingError})=>({
+@connect(({ commentList, newsDetail, loadingError })=>({
     commentList,
     newsDetail,
     loadingError
@@ -56,7 +56,7 @@ export default class CommentList extends Component{
     }
 
     componentDidMount(){
-        // document.documentElement.scrollTop = 0
+        document.documentElement.scrollTop = 0
         const { id } = this.props.match.params
         this.props.getNewsExtraFunc(id)
         this.props.getLongCommentListFunc(id)

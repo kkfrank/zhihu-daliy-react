@@ -13,7 +13,7 @@ import { clearErrorMsg } from '../../actions/loading_error'
 
 import { parseDate, listenScrollBottom, removeListenScrollBottom } from '../../utils/utils'
 
-import './index.scss'
+import './NewsList.scss'
 
 @connect(({newsList, loadingError})=>({
     newsList,

@@ -9,7 +9,7 @@ import Header from '../../components/Header'
 
 import { getNewsDetail , getNewsExtra } from '../../actions/news_detail'
 import { clearErrorMsg } from '../../actions/loading_error'
-import './index.scss'
+import './NewsDetail.scss'
 
 @connect(({newsDetail, loadingError})=>({
     newsDetail,

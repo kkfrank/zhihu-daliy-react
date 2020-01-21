@@ -14,8 +14,8 @@ export default class Header extends Component{
         return(
            <div className='news-list-header'>
                <div className='time'>
-                   <div className='fw700'>{date.getDate()}</div>
-                   <div>{monthList[date.getMonth()]}</div>
+                   <div className='fw700'>{ date.getDate() }</div>
+                   <div>{ monthList[date.getMonth()] }</div>
                </div>
                 <h1>知乎日报</h1>
            </div>
