@@ -1,9 +1,9 @@
-#知乎日报React版本
-##项目结构
+# 知乎日报React版本
+## 项目结构
 混合结构划分文件结构
 
 
-#技术要点
+# 技术要点
 1.ajax请求，使用fetch
 Fetch is a standardized JavaScript function to make asynchronous calls inspired by jQuery's AJAX
 当然为了浏览器的兼容性，采用isomorphic-fetch模块
@@ -20,7 +20,7 @@ bindActionCreators(actionCreators,dispatch)
 to automatically bind many action creators to a dispatch() function.
 
 
-##遇到的问题
+## 遇到的问题
 1.react-router采用BrowserRouter模式，浏览器手动刷新或者输入地址访问，页面报错404找不到
 原因：这是webpack-dev-server的问题，刷新页面时，向后台发送当前请求的url（比如/about），然后后台没有处理此路由的程序，所以就404报错了
 解决方法：可以配置webpack中devServer中的historyApiFallback属性为true,当请求404时，服务器返回index.html页面，index页面里面引用文件的路径需要使用绝对路径，比如&lt;script src="/bundle.js"></script>，否则应用报错
