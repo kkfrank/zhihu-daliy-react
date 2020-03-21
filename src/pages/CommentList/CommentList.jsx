@@ -69,7 +69,6 @@ export default class CommentList extends Component{
     }
 
     componentWillUnmount(){
-        console.log('comment list componentWillUnmount')
         removeListenScrollBottom();
         // this.props.clearCategoryFunc()
     }

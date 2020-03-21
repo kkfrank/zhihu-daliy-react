@@ -76,7 +76,6 @@ export default class NewsList extends Component{
     }
 
     componentWillUnmount(){
-        console.log('news list componentWillUnmount')
         removeListenScrollBottom();
         // this.props.clearCategoryFunc()
     }

@@ -1,74 +1,80 @@
-const webpack = require('webpack');
-const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports={
+    mode: 'development',
     devtool: 'cheap-eval-source-map',
     entry: './src/index.js',
 	output:{
-		path:__dirname + '/build/',
-		// publicPath:'',
-		filename:'js/bundle.js'
+        path: '/build',
+		// filename: '[name].bundle.js',
+        filename: '[name].[hash].js',
+        // chunkFilename: '[name].bundle.js',
 	},
     resolve: {
         extensions: ['.js', '.jsx', '.scss', '.css']
     },
 	module:{
-		rules:[
-			{
-				//test:/\*.js$/,
+		rules:[{
 				test:/\.(js|jsx)$/,
-				exclude:/node_modules/,
-				use:[{
+                include: /src/,
+				use: [{
 					loader:'babel-loader'
-				}]
-			},
-			{
-				test:/\.css$/,
-				exclude:/node_modules/,
+				 }]
+			}, {
+                test: /\.html$/,
+                use: [{
+                        loader: "html-loader"
+                    }]
+            }, {
+                test: /\.(sa|sc|c)ss$/,
+                include: /src/,
 				use:[{
-					loader:'style-loader'
+                    loader: MiniCssExtractPlugin.loader
+                },{
+                    loader:'css-loader'
 				},{
-					loader:'css-loader'
-				}]
-			},
-            {
-                test: /\.scss$/,
-                // exclude: /node_modules/,
-                use: ExtractTextPlugin.extract({
-                    use: [{
-                            loader: "style-loader" // 将 JS 字符串生成为 style 节点
-                        },{
-                            loader: "css-loader", // 将 CSS 转化成 CommonJS 模块
-                            options: {
-                                sourceMap: true
-                            }
-                        }, {
-                            loader: 'postcss-loader',
-                            options: {
-                                sourceMap: true
-                            }
-                        }, {
-                            loader: "sass-loader",// 将 Sass 编译成 CSS
-                            options: {
-                                sourceMap: true
-                            }
-                        }]
-                })
+					loader:'postcss-loader'
+				},{
+                    loader: "sass-loader"
+                }]
+			}, {
+                test: /\.(png|jpe?g|gif)$/,
+                use:[{
+                        loader: 'url-loader?limit=10000&name=img/[name].[ext]'
+                }]
             }
 		]
 	},
+    optimization:{
+        // splitChunks: {
+        //     chunks: 'all',
+        //     // name: false
+        // }
+        runtimeChunk: 'single',
+        splitChunks: {
+            chunks: 'all',
+            maxInitialRequests: Infinity,
+            // minSize: 1024 * 100,
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name(module) {
+                        // get the name. E.g. node_modules/packageName/not/this/part.js
+                        // or node_modules/packageName
+                        const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+                        // npm package names are URL-safe, but some servers don't like @ symbols
+                        return `npm.${packageName.replace('@', '')}`;
+                    },
+                },
+            },
+        },
+    },
     plugins: [
         // 独立css文件
-        new ExtractTextPlugin({
-            filename: 'css/main.css',
-            disable: true
-        }),
-        // 提出公共模块
-        new webpack.optimize.CommonsChunkPlugin({
-            name : 'common',
-            filename: 'js/main.js'
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+            chunkFilename: '[id].css'
         }),
         // html 模板插件
         new HtmlWebpackPlugin({
@@ -76,11 +82,8 @@ module.exports={
         })
 	],
     devServer:{
-		port:9000,
-		historyApiFallback:true,
-		// headers:{
-		// 	'Access-Control-Allow-Origin':'*'
-		// }
+		port: 9000,
+		historyApiFallback: true
 	}
 }
 
